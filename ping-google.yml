@@ -1,0 +1,14 @@
+---
+- name: Ping Google.com
+  hosts: localhost
+  tasks:
+    - name: Make HTTP GET Request to Google
+      uri:
+        url: "https://www.google.com"
+        method: GET
+        status_code: 200  # Kode status yang diharapkan dari respons API
+      register: response
+
+    - name: Display Response
+      debug:
+        var: response
